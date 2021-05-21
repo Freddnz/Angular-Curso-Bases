@@ -1,0 +1,24 @@
+<p>Listado de heroes</p>
+
+<div *ngIf="heroeDelete; else noBorrado">
+    <h3>Heroe Borrado: <small>{{ heroeDelete }}</small> </h3>
+</div>
+
+<!--El # seguido de una variable, quiere decir que es una referencia global.
+    esto quiere decir, es una propiedad creada y con alcance solo en el template -->
+<ng-template #noBorrado>
+    <h3>No Ha borrado nada</h3>
+</ng-template>
+
+
+
+
+
+<button (click)= "borrarHeroe()">Borrar</button>
+
+<ul>
+    <li *ngFor ="let heroe of heroes; let i = index">
+       {{ i + 1 }} - {{ heroe }}
+    </li>
+</ul>
+
